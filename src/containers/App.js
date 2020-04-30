@@ -16,7 +16,14 @@ class App extends Component {
     }
     
     componentDidMount(){
-        fetch("https://thingproxy.freeboard.io/fetch/https://jsonplaceholder.typicode.com/users")
+        var misCabeceras = new Headers();
+        var miInit = {
+            method: "GET",
+            headers: misCabeceras,
+            mode: "no-cors",
+            cache: "default"
+        };
+        fetch("https://thingproxy.freeboard.io/fetch/https://jsonplaceholder.typicode.com/users", miInit)
         .then(response=> response.json())
         .then(users => this.setState({ robots : users}));
     }
