@@ -23,7 +23,7 @@ class App extends Component {
             mode: "no-cors",
             cache: "default"
         };
-        fetch("https://thingproxy.freeboard.io/fetch/https://jsonplaceholder.typicode.com/users", miInit)
+        fetch("https://jsonplaceholder.typicode.com/users", miInit)
         .then(response=> response.json())
         .then(users => this.setState({ robots : users}));
     }
