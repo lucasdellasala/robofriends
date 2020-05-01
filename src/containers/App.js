@@ -21,7 +21,7 @@ class App extends Component {
         var miInit = {
             method: "GET",
             headers: misCabeceras,
-            mode: "no-cors",
+            mode: "cors",
             cache: "default"
         };
         fetch("https://thingproxy.freeboard.io/fetch/https://jsonplaceholder.typicode.com/users", miInit).then(function(response) {
