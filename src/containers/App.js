@@ -24,7 +24,7 @@ class App extends Component {
             mode: "no-cors",
             cache: "default"
         };
-        fetch("https://jsonplaceholder.typicode.com/users", miInit).then(function(response) {
+        fetch("https://thingproxy.freeboard.io/fetch/https://jsonplaceholder.typicode.com/users", miInit).then(function(response) {
             if(response.ok) {
               response.blob().then(function(miBlob) {
                 var objectURL = URL.createObjectURL(miBlob);
