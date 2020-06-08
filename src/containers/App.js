@@ -3,7 +3,7 @@ import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
 import "./App.css";
-
+import cors from "cors";
 
 class App extends Component {
     
@@ -16,28 +16,7 @@ class App extends Component {
     }
     
     componentDidMount(){
-        var misCabeceras = new Headers();
-        var miLista;
-        var miInit = {
-            method: "GET",
-            headers: misCabeceras,
-            mode: "no-cors",
-            cache: "default"
-        };
-        fetch("https://thingproxy.freeboard.io/fetch/https://jsonplaceholder.typicode.com/users", miInit)
-        // .then(function(response) {
-        //     if(response.ok) {
-        //       response.blob().then(function(miBlob) {
-        //         var objectURL = URL.createObjectURL(miBlob);
-        //         miLista.src = objectURL;
-        //       });
-        //     } else {
-        //       console.log('Respuesta de red OK pero respuesta HTTP no OK');
-        //     }
-        //   })
-        //   .catch(function(error) {
-        //     console.log('Hubo un problema con la petición Fetch:' + error.message);
-        //   });
+        fetch("https://jsonplaceholder.typicode.com/users")
         .then(response => response.json())
         .then(users => this.setState( { robots : users} ));
     }
@@ -64,5 +43,7 @@ class App extends Component {
         
     }
 }
+
+cors(App);
 
 export default App;
